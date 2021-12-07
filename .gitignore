@@ -1,0 +1,5 @@
+.idea
+private
+media
+migrations
+db.sqlite3

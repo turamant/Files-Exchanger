@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <title>Post</title>
+</head>
+<body class="max-w-4xl mx-auto">
+<section class="my-5">
+<form method="get">
+    {{ form }}
+<button type="submit" class="text-white font-bold bg-purple-700 hover:bg-purple-800
+py-2 px-4 rounded">Искать/Сортировать</button>
+</form>
+</section>
+<h3 class="text-2xl font-bold mt-8 mb-5 mx-5">Посты по авторам</h3>
+
+{% for post in posts %}
+<p class="mx-5 my-3">Заголовок: {{ post.title }}</p>
+<p>Автор: {{ post.author }}</p>
+{% if post.image %}
+    <img src="{{ post.image.url }}" height="50" width="50">
+{% endif %}
+{% if post.upload %}
+{{ post.upload }}
+<form action="{% url 'download_file' post.upload %}" target="_blank">
+   <button class="text-white font-bold bg-purple-700 hover:bg-purple-800
+py-2 px-4 rounded">Скачать файл</button>
+</form>
+{% endif %}
+{% endfor %}
+
+</body>
+</html>
