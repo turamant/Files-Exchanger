@@ -3,3 +3,5 @@ private
 media
 migrations
 db.sqlite3
+config/__pycache__
+*.pyc
